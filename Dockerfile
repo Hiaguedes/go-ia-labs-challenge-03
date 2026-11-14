@@ -1,15 +1,21 @@
-FROM golang:1.20
-
+FROM golang:1.27-alpine3.24 AS builder
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
+RUN apk add --no-cache ca-certificates
 
-RUN go build -o /app/auction cmd/auction/main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/bin/auction ./cmd/auction
+
+FROM scratch
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+
+WORKDIR /app
+COPY --from=builder /app/bin/auction .
+COPY cmd/auction/.env .
 
 EXPOSE 8080
 
-ENTRYPOINT ["/app/auction"]
+ENTRYPOINT ["./auction"]
