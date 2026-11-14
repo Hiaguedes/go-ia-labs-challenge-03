@@ -2,20 +2,21 @@ package main
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/database/mongodb"
-	"fullcycle-auction_go/internal/infra/api/web/controller/auction_controller"
-	"fullcycle-auction_go/internal/infra/api/web/controller/bid_controller"
-	"fullcycle-auction_go/internal/infra/api/web/controller/user_controller"
-	"fullcycle-auction_go/internal/infra/database/auction"
-	"fullcycle-auction_go/internal/infra/database/bid"
-	"fullcycle-auction_go/internal/infra/database/user"
-	"fullcycle-auction_go/internal/usecase/auction_usecase"
-	"fullcycle-auction_go/internal/usecase/bid_usecase"
-	"fullcycle-auction_go/internal/usecase/user_usecase"
+	"log"
+
 	"github.com/gin-gonic/gin"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/configuration/database/mongodb"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/api/web/controller/auction_controller"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/api/web/controller/bid_controller"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/api/web/controller/user_controller"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/database/auction"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/database/bid"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/infra/database/user"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/usecase/auction_usecase"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/usecase/bid_usecase"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/usecase/user_usecase"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
-	"log"
 )
 
 func main() {

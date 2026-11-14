@@ -2,11 +2,12 @@ package user_controller
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/rest_err"
-	"fullcycle-auction_go/internal/usecase/user_usecase"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"net/http"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/configuration/rest_err"
+	"github.com/hiaguedes/go-ia-labs-challenge-03/internal/usecase/user_usecase"
 )
 
 type UserController struct {
